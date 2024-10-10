@@ -4,9 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <div class="rounded-full py-3 px-6 bg-gray-200">Pill Shape</div>
-  </header>
+  <div class="container mx-auto">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
