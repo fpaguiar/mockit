@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import { RouterView } from "vue-router";
+import Menu from "@/components/Menu.vue";
 </script>
 
 <template>
-  <div class="container mx-auto">
-    <RouterView />
+  <div class="flex space-x-4">
+    <Menu class="max-w-80" />
+    <div class="container">
+      <RouterView />
+    </div>
   </div>
 </template>
 
