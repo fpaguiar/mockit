@@ -4,11 +4,9 @@ import Menu from "@/components/Menu.vue";
 </script>
 
 <template>
-  <div class="flex space-x-4">
-    <Menu class="max-w-80" />
-    <div class="container">
-      <RouterView />
-    </div>
+  <Menu />
+  <div class="container mx-auto">
+    <RouterView />
   </div>
 </template>
 

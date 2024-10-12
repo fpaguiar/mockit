@@ -6,9 +6,18 @@ const routes = router.getRoutes();
 </script>
 
 <template>
-  <ul class="menu bg-base-200 rounded-box w-56">
-    <li v-for="route in routes" :key="route.name">
-      <RouterLink :to="route.path">{{ route.name }}</RouterLink>
-    </li>
-  </ul>
+  <nav class="navbar bg-base-100">
+    <div class="navbar-start"></div>
+    <div class="navbar-center">
+      <RouterLink
+        class="btn btn-ghost btn-sm"
+        v-for="route in routes"
+        :key="route.name"
+        :to="route.path"
+      >
+        {{ route.name }}
+      </RouterLink>
+    </div>
+    <div class="navbar-end"></div>
+  </nav>
 </template>
