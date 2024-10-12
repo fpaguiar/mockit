@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
-import { generateLuhnNumber } from "@/utils/generateLuhnNumber"
+import { generateLuhnNumber } from "@/utils/generateLuhnNumber";
 
 const getBirthdateObject = () => {
   const date = faker.date.birthdate();
   return {
     year: date.getFullYear(),
     month: date.getMonth() + 1,
-    day: date.getDate()
+    day: date.getDate(),
   };
 };
 
@@ -17,7 +17,7 @@ const generatePersonalInfo = () => {
   const birthdate = getBirthdateObject();
   const email = faker.internet.email({
     firstName,
-    lastName
+    lastName,
   });
   const phoneNumber = faker.phone.number();
   const sin = generateLuhnNumber(9);
@@ -28,7 +28,7 @@ const generatePersonalInfo = () => {
     birthdate,
     email,
     phoneNumber,
-    sin
+    sin,
   };
 };
 
@@ -38,7 +38,9 @@ const personalInfo = generatePersonalInfo();
 <template>
   <table class="table">
     <thead>
-      <tr><td>Personal Info</td></tr>
+      <tr>
+        <td>Personal Info</td>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -51,7 +53,11 @@ const personalInfo = generatePersonalInfo();
       </tr>
       <tr>
         <th>Birthdate</th>
-        <td>{{ personalInfo.birthdate.year }}-{{ personalInfo.birthdate.month }}-{{ personalInfo.birthdate.day }}</td>
+        <td>
+          {{ personalInfo.birthdate.year }}-{{
+            personalInfo.birthdate.month
+          }}-{{ personalInfo.birthdate.day }}
+        </td>
       </tr>
       <tr>
         <th>Email</th>
