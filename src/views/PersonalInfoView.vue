@@ -5,9 +5,9 @@ import { generateLuhnNumber } from "@/utils/generateLuhnNumber";
 const getBirthdateObject = () => {
   const date = faker.date.birthdate();
   return {
-    year: date.getFullYear(),
-    month: date.getMonth() + 1,
-    day: date.getDate(),
+    year: date.getFullYear().toString(),
+    month: (date.getMonth() + 1).toString().padStart(2, "0"),
+    day: date.getDate().toString().padStart(2, "0"),
   };
 };
 
@@ -19,7 +19,7 @@ const generatePersonalInfo = () => {
     firstName,
     lastName,
   });
-  const phoneNumber = faker.phone.number();
+  const phoneNumber = faker.phone.number({ style: "national" });
   const sin = generateLuhnNumber(9);
 
   return {
