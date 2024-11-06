@@ -13,6 +13,7 @@ const getBirthdateObject = () => {
 
 const generatePersonalInfo = () => {
   const firstName = faker.person.firstName();
+  const middleName = faker.person.middleName();
   const lastName = faker.person.lastName();
   const birthdate = getBirthdateObject();
   const email = faker.internet.email({
@@ -24,6 +25,7 @@ const generatePersonalInfo = () => {
 
   return {
     firstName,
+    middleName,
     lastName,
     birthdate,
     email,
@@ -46,6 +48,10 @@ const personalInfo = generatePersonalInfo();
       <tr>
         <th>First Name</th>
         <td>{{ personalInfo.firstName }}</td>
+      </tr>
+      <tr>
+        <th>Middle Name</th>
+        <td>{{ personalInfo.middleName }}</td>
       </tr>
       <tr>
         <th>Last Name</th>
