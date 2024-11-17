@@ -2,7 +2,7 @@ export function generateLuhnNumber(length: number): string {
   // Helper function to calculate the Luhn checksum for a given number array
   function calculateLuhnChecksum(digits: number[]): number {
     let sum = 0;
-    let shouldDouble = false;
+    let shouldDouble = true;
 
     // Iterate over digits from right to left
     for (let i = digits.length - 1; i >= 0; i--) {
