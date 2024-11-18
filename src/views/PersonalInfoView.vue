@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
 import { generateLuhnNumber } from "@/utils/generateLuhnNumber";
+import { pickRandomCoordinate } from "@/utils/pickRandomCoordinate";
 
 const getBirthdateObject = () => {
   const date = faker.date.birthdate();
@@ -21,6 +22,9 @@ const generatePersonalInfo = () => {
   });
   const phoneNumber = faker.phone.number({ style: "national" });
   const sin = generateLuhnNumber(9);
+  const employer = faker.company.name();
+  const jobTitle = faker.person.jobTitle();
+  const coords = pickRandomCoordinate();
 
   return {
     firstName,
@@ -29,6 +33,9 @@ const generatePersonalInfo = () => {
     email,
     phoneNumber,
     sin,
+    employer,
+    jobTitle,
+    coords,
   };
 };
 
@@ -70,6 +77,20 @@ const personalInfo = generatePersonalInfo();
       <tr>
         <th>SIN</th>
         <td>{{ personalInfo.sin }}</td>
+      </tr>
+      <tr>
+        <th>Employer</th>
+        <td>{{ personalInfo.employer }}</td>
+      </tr>
+      <tr>
+        <th>Job Title</th>
+        <td>{{ personalInfo.jobTitle }}</td>
+      </tr>
+      <tr>
+        <th>Coordinates</th>
+        <td>
+          {{ personalInfo.coords[0] }}, {{ personalInfo.coords[1] }}
+        </td>
       </tr>
     </tbody>
   </table>
